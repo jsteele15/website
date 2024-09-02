@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cobnlnevoy4r2"]
+
+[ext_resource type="Script" path="res://intel.gd" id="1_fxw66"]
+[ext_resource type="Texture2D" uid="uid://xb4u5cjioydu" path="res://res/intel_pic.png" id="2_brkwq"]
+[ext_resource type="AudioStream" uid="uid://bosnoph7ckq8m" path="res://res/paper-rustle-81855.mp3" id="3_ubmxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1duet"]
+size = Vector2(60, 63)
+
+[node name="intel" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_fxw66")
+
+[node name="IntelPic" type="Sprite2D" parent="."]
+texture = ExtResource("2_brkwq")
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1duet")
+
+[node name="paper_shuffle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ubmxs")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

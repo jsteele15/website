@@ -1,0 +1,530 @@
+[gd_scene load_steps=17 format=3 uid="uid://bgw7f58iom4r1"]
+
+[ext_resource type="Texture2D" uid="uid://srmtwfwq50j4" path="res://res/confed_map.png" id="1_4fh36"]
+[ext_resource type="Script" path="res://scenes/war_map.gd" id="1_5m3uf"]
+[ext_resource type="PackedScene" uid="uid://cpicmd3ka8vva" path="res://scenes/spy_centers.tscn" id="2_k2l75"]
+[ext_resource type="Texture2D" uid="uid://bleku1l13e5jf" path="res://res/white_block.png" id="2_tocqt"]
+[ext_resource type="Texture2D" uid="uid://cseyjq4db7pqh" path="res://res/road.png" id="3_lf4le"]
+[ext_resource type="Script" path="res://scenes/ui_butts.gd" id="4_4q6a0"]
+[ext_resource type="Texture2D" uid="uid://y3ves6th1pmq" path="res://res/name.png" id="4_yjlcr"]
+[ext_resource type="Script" path="res://scenes/road.gd" id="4_yuor6"]
+[ext_resource type="PackedScene" uid="uid://crlnqrfn7l1kf" path="res://ui/buttons.tscn" id="5_kdkj2"]
+[ext_resource type="PackedScene" uid="uid://2ojpex6irhem" path="res://scenes/north.tscn" id="6_j30ya"]
+[ext_resource type="PackedScene" uid="uid://djjhcc46aa0wo" path="res://ui/turnbut.tscn" id="6_tgcpb"]
+[ext_resource type="Script" path="res://scenes/game_stats.gd" id="7_sb7tp"]
+[ext_resource type="PackedScene" uid="uid://b3k4kl8il6lwc" path="res://ui/battle_card.tscn" id="8_j3lif"]
+[ext_resource type="PackedScene" uid="uid://c6rdv2pa3i622" path="res://scenes/destructables.tscn" id="9_ysmj7"]
+[ext_resource type="FontFile" uid="uid://ljumcpkmeute" path="res://res/amiri/Amiri-Bold.ttf" id="13_bbbas"]
+[ext_resource type="PackedScene" uid="uid://d1puxrnq2rbq7" path="res://scenes/end_screen.tscn" id="15_dkfr7"]
+
+[node name="war_map" type="Node2D"]
+position = Vector2(330, -39)
+script = ExtResource("1_5m3uf")
+
+[node name="WhiteBlock" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.839216, 0.776471, 0.631373)
+position = Vector2(2381.58, 638)
+scale = Vector2(1.93761, 0.981883)
+texture = ExtResource("2_tocqt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+
+[node name="ConfedMap" type="Sprite2D" parent="Camera2D"]
+position = Vector2(466, 665)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4fh36")
+
+[node name="tex_nam" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(-269.632, -75.5)
+scale = Vector2(0.3, 0.294)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+
+[node name="mis_nam" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(-60.5, 10.5)
+rotation = 1.0472
+scale = Vector2(0.170281, 0.294)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="lou_nam2" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(16, -59)
+rotation = 1.28805
+scale = Vector2(0.129815, 0.208855)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 2
+
+[node name="ala_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(83, -49)
+rotation = 1.21824
+scale = Vector2(0.119576, 0.29981)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 3
+
+[node name="flor_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(168, 53)
+rotation = 0.146608
+scale = Vector2(0.129815, 0.208855)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 4
+
+[node name="gor_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(209.5, -15)
+scale = Vector2(0.129815, 0.208855)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 5
+
+[node name="south_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(264.546, -85.9495)
+scale = Vector2(0.114908, 0.163251)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 6
+
+[node name="nor_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(309.5, -147.5)
+scale = Vector2(0.104407, 0.170604)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 7
+
+[node name="ark_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(-65, -133)
+scale = Vector2(0.129815, 0.208855)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 11
+
+[node name="cs_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(275, -72)
+scale = Vector2(0.118908, 0.177957)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 8
+
+[node name="cn_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(324.5, -133)
+scale = Vector2(0.129815, 0.208855)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 8
+
+[node name="ten_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(111, -149)
+scale = Vector2(0.129815, 0.208855)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="vir_nam3" type="Sprite2D" parent="Camera2D/ConfedMap"]
+modulate = Color(1, 1, 1, 0.407843)
+position = Vector2(364, -193.5)
+scale = Vector2(0.0999075, 0.192662)
+texture = ExtResource("4_yjlcr")
+hframes = 3
+vframes = 4
+frame = 10
+
+[node name="texas_lou_rd" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(-149.5, -5.50001)
+rotation = 0.139626
+scale = Vector2(1.32509, 0.0881328)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers2")
+con_2 = NodePath("../spy_centers3")
+rd = NodePath(".")
+
+[node name="lou_mis" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(-24.0297, 14.0238)
+rotation = 0.174533
+scale = Vector2(0.605178, 0.0795683)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers3")
+con_2 = NodePath("../spy_centers4")
+rd = NodePath(".")
+
+[node name="lou_gor" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(177.218, 2.58119)
+rotation = 0.349066
+scale = Vector2(0.895488, 0.0750985)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers5")
+con_2 = NodePath("../spy_centers7")
+rd = NodePath(".")
+
+[node name="gor_sc" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(266.172, -15.4385)
+rotation = -0.872665
+scale = Vector2(0.67353, 0.078639)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers7")
+con_2 = NodePath("../spy_centers9")
+rd = NodePath(".")
+
+[node name="sc_nc" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(321, -88)
+rotation = 0.610865
+scale = Vector2(0.0810288, 0.558658)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers9")
+con_2 = NodePath("../spy_centers10")
+rd = NodePath(".")
+
+[node name="nc_vir" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(339.5, -158.5)
+rotation = -0.16057
+scale = Vector2(0.082652, 0.39893)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers10")
+con_2 = NodePath("../spy_centers11")
+rd = NodePath(".")
+
+[node name="fl_gor" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(225.086, 60.5151)
+rotation = 0.174533
+scale = Vector2(0.104481, 0.490942)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers8")
+con_2 = NodePath("../spy_centers7")
+rd = NodePath(".")
+
+[node name="ark_mis" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(-18.9662, -70.9709)
+rotation = -0.436332
+scale = Vector2(0.096822, 1.68634)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers")
+con_2 = NodePath("../spy_centers4")
+rd = NodePath(".")
+
+[node name="ala_ten" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(112.712, -73.5978)
+rotation = -0.162316
+scale = Vector2(0.117951, 0.867228)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers6")
+con_2 = NodePath("../spy_centers5")
+rd = NodePath(".")
+
+[node name="lou_ala" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(70.852, 1.17361)
+rotation = -0.261799
+scale = Vector2(0.775274, 0.0826747)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers4")
+con_2 = NodePath("../spy_centers5")
+rd = NodePath(".")
+
+[node name="flo_mis" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(118.956, 59.1217)
+rotation = -1.22173
+scale = Vector2(0.096822, 1.79713)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers4")
+con_2 = NodePath("../spy_centers8")
+rd = NodePath(".")
+
+[node name="nor_ark" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(1.06753, -181.077)
+rotation = 1.22173
+scale = Vector2(0.065, 1.00161)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers")
+con_2 = NodePath("../north")
+rd = NodePath(".")
+
+[node name="nor_ten" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(102.375, -168.75)
+scale = Vector2(0.0924999, 0.425)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers6")
+con_2 = NodePath("../north")
+rd = NodePath(".")
+
+[node name="nor_vir" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(238.25, -198)
+scale = Vector2(1.635, 0.08)
+texture = ExtResource("3_lf4le")
+script = ExtResource("4_yuor6")
+con_1 = NodePath("../spy_centers11")
+con_2 = NodePath("../north")
+rd = NodePath(".")
+
+[node name="north" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2", "rd3", "rd4") instance=ExtResource("6_j30ya")]
+position = Vector2(113, -211)
+scale = Vector2(0.5, 0.5)
+rd1 = NodePath("../nor_ten")
+rd2 = NodePath("../nor_ark")
+rd3 = NodePath("../nor_vir")
+rd4 = NodePath("../nor_ten")
+
+[node name="spy_centers3" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("2_k2l75")]
+position = Vector2(-69.5, 6)
+rd1 = NodePath("../texas_lou_rd")
+rd2 = NodePath("../lou_mis")
+
+[node name="spy_centers2" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1") instance=ExtResource("2_k2l75")]
+position = Vector2(-229.5, -15.5)
+rd1 = NodePath("../texas_lou_rd")
+
+[node name="spy_centers" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("2_k2l75")]
+position = Vector2(-60.5, -161)
+rd1 = NodePath("../ark_mis")
+rd2 = NodePath("../nor_ark")
+
+[node name="spy_centers4" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2", "rd3") instance=ExtResource("2_k2l75")]
+position = Vector2(21.5, 20.5)
+rd1 = NodePath("../lou_mis")
+rd2 = NodePath("../ark_mis")
+rd3 = NodePath("../lou_ala")
+
+[node name="spy_centers5" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2", "rd3") instance=ExtResource("2_k2l75")]
+position = Vector2(121, -16)
+rd1 = NodePath("../lou_ala")
+rd2 = NodePath("../ala_ten")
+rd3 = NodePath("../lou_gor")
+
+[node name="spy_centers6" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2", "rd3") instance=ExtResource("2_k2l75")]
+position = Vector2(103, -132)
+rd1 = NodePath("../ala_ten")
+rd2 = NodePath("../nor_ten")
+rd3 = NodePath("../nor_ten")
+
+[node name="spy_centers7" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2", "rd3") instance=ExtResource("2_k2l75")]
+position = Vector2(234, 21)
+rd1 = NodePath("../fl_gor")
+rd2 = NodePath("../gor_sc")
+rd3 = NodePath("../lou_gor")
+
+[node name="spy_centers8" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("2_k2l75")]
+position = Vector2(215.5, 97.5)
+rd1 = NodePath("../flo_mis")
+rd2 = NodePath("../fl_gor")
+
+[node name="spy_centers9" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("2_k2l75")]
+position = Vector2(297.5, -52.5)
+rd1 = NodePath("../gor_sc")
+rd2 = NodePath("../sc_nc")
+
+[node name="spy_centers10" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("2_k2l75")]
+position = Vector2(343.5, -123.5)
+rd1 = NodePath("../sc_nc")
+rd2 = NodePath("../nc_vir")
+
+[node name="spy_centers11" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("2_k2l75")]
+position = Vector2(334, -194)
+rd1 = NodePath("../nc_vir")
+rd2 = NodePath("../nor_vir")
+
+[node name="des_con" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="css albemarle" parent="Camera2D/des_con" node_paths=PackedStringArray("linked_station") instance=ExtResource("9_ysmj7")]
+position = Vector2(1363, 327)
+linked_station = NodePath("../../ConfedMap/spy_centers11")
+
+[node name="loc chase" parent="Camera2D/des_con" node_paths=PackedStringArray("linked_station") instance=ExtResource("9_ysmj7")]
+position = Vector2(849, 529)
+linked_station = NodePath("../../ConfedMap/spy_centers7")
+fra = 1
+
+[node name="ui_butts" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = 19.0
+offset_right = 960.0
+offset_bottom = 19.0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("4_4q6a0")
+
+[node name="upgrade" parent="Camera2D/ui_butts" instance=ExtResource("5_kdkj2")]
+position = Vector2(79, -69)
+scale = Vector2(0.5, 0.5)
+activated = 1
+
+[node name="close" parent="Camera2D/ui_butts" instance=ExtResource("5_kdkj2")]
+position = Vector2(275, -70)
+scale = Vector2(0.5, 0.5)
+fra = 2
+activated = 2
+
+[node name="recon" parent="Camera2D/ui_butts" instance=ExtResource("5_kdkj2")]
+position = Vector2(468, -71)
+scale = Vector2(0.5, 0.5)
+fra = 4
+activated = 3
+
+[node name="intel" parent="Camera2D/ui_butts" instance=ExtResource("5_kdkj2")]
+position = Vector2(679, -73)
+scale = Vector2(0.5, 0.5)
+fra = 6
+activated = 4
+
+[node name="count" parent="Camera2D/ui_butts" instance=ExtResource("5_kdkj2")]
+position = Vector2(890, -83)
+scale = Vector2(0.5, 0.5)
+fra = 8
+activated = 5
+
+[node name="turnbut" parent="Camera2D/ui_butts" instance=ExtResource("6_tgcpb")]
+position = Vector2(1164, -94)
+
+[node name="game_stats" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -326.0
+offset_top = 46.0
+offset_right = 820.0
+offset_bottom = 88.0
+mouse_filter = 2
+script = ExtResource("7_sb7tp")
+
+[node name="battle" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 961.0
+offset_top = 1.0
+offset_right = 1163.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("13_bbbas")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] battle  [/center]"
+
+[node name="year" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 614.0
+offset_top = -1.0
+offset_right = 828.0
+offset_bottom = 65.0
+theme_override_fonts/normal_font = ExtResource("13_bbbas")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] 1861  [/center]"
+
+[node name="turn" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 1.0
+offset_right = 524.0
+offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("13_bbbas")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] turn: 1  [/center]"
+
+[node name="op_power" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("13_bbbas")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] OP: 10  [/center]"
+
+[node name="intel_gathered" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 1170.0
+offset_top = 1.0
+offset_right = 1372.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("13_bbbas")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] IL : 1  [/center]"
+
+[node name="conf" type="ColorRect" parent="."]
+offset_left = -330.0
+offset_top = 102.0
+offset_right = 1428.0
+offset_bottom = 142.0
+mouse_filter = 2
+color = Color(0.74902, 0.0392157, 0.188235, 1)
+
+[node name="feds" type="ColorRect" parent="."]
+offset_left = -330.0
+offset_top = 102.0
+offset_right = -290.0
+offset_bottom = 142.0
+mouse_filter = 2
+color = Color(0.0392157, 0.192157, 0.380392, 1)
+
+[node name="back_bar" type="ColorRect" parent="."]
+offset_left = -330.0
+offset_top = 1200.0
+offset_right = 1428.0
+offset_bottom = 1240.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.717647)
+
+[node name="fill" type="ColorRect" parent="."]
+offset_left = -330.0
+offset_top = 1200.0
+offset_right = -290.0
+offset_bottom = 1240.0
+mouse_filter = 2
+color = Color(0.866667, 0.764706, 0, 1)
+
+[node name="fader" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.839216, 0.776471, 0)
+position = Vector2(2832, 537)
+texture = ExtResource("2_tocqt")
+
+[node name="end_screen" parent="." instance=ExtResource("15_dkfr7")]
+position = Vector2(463, -724)
+scale = Vector2(2, 2)
+
+[node name="battle_card" parent="." instance=ExtResource("8_j3lif")]
+position = Vector2(308, 1200)

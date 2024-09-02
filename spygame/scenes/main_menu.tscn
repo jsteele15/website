@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://cv1d64mue8fg3"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_gukx7"]
+[ext_resource type="Texture2D" uid="uid://bleku1l13e5jf" path="res://res/white_block.png" id="2_qdfgl"]
+[ext_resource type="Texture2D" uid="uid://dhd46ko4rlodr" path="res://res/menu_buts.png" id="3_vovgv"]
+[ext_resource type="Shader" path="res://scenes/main_menu.gdshader" id="4_d6eh1"]
+[ext_resource type="Texture2D" uid="uid://qwhvy01a3vaf" path="res://res/test_back.png" id="4_psq2p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h0thu"]
+shader = ExtResource("4_d6eh1")
+shader_parameter/scroll_speed = 0.1
+shader_parameter/angle_degrees = 90.0
+shader_parameter/repeat_x = 10.0
+shader_parameter/repeat_y = 10.0
+shader_parameter/tint = Color(0.658824, 0.6, 0.486275, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xae8q"]
+radius = 132.046
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0sjw"]
+radius = 131.004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ul6g"]
+radius = 134.302
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_gukx7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(572, 323)
+limit_left = 0
+limit_top = 0
+
+[node name="WhiteBlock" type="Sprite2D" parent="Camera2D"]
+modulate = Color(0.901961, 0.839216, 0.776471, 0.631373)
+position = Vector2(1674.58, 823)
+scale = Vector2(1.66028, 0.981883)
+texture = ExtResource("2_qdfgl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_h0thu")
+offset_right = 4291.0
+offset_bottom = 3349.0
+texture = ExtResource("4_psq2p")
+stretch_mode = 4
+
+[node name="play" type="Sprite2D" parent="."]
+position = Vector2(574, 322)
+texture = ExtResource("3_vovgv")
+hframes = 6
+
+[node name="Area2D" type="Area2D" parent="play"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="play/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_xae8q")
+
+[node name="tut" type="Sprite2D" parent="."]
+position = Vector2(1006, 335)
+texture = ExtResource("3_vovgv")
+hframes = 6
+frame = 2
+
+[node name="tut_ar" type="Area2D" parent="tut"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tut/tut_ar"]
+shape = SubResource("CircleShape2D_a0sjw")
+
+[node name="ext" type="Sprite2D" parent="."]
+position = Vector2(202, 335)
+texture = ExtResource("3_vovgv")
+hframes = 6
+frame = 4
+
+[node name="ext_Ar" type="Area2D" parent="ext"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ext/ext_Ar"]
+shape = SubResource("CircleShape2D_4ul6g")
+
+[connection signal="mouse_entered" from="play/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="play/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="tut/tut_ar" to="." method="_on_tut_ar_mouse_entered"]
+[connection signal="mouse_exited" from="tut/tut_ar" to="." method="_on_tut_ar_mouse_exited"]
+[connection signal="mouse_entered" from="ext/ext_Ar" to="." method="_on_ext_ar_mouse_entered"]
+[connection signal="mouse_exited" from="ext/ext_Ar" to="." method="_on_ext_ar_mouse_exited"]

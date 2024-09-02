@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgw7f58iom4r1"]
+
+[ext_resource type="Texture2D" uid="uid://srmtwfwq50j4" path="res://res/confed_map.png" id="1_4fh36"]
+[ext_resource type="Script" path="res://scenes/war_map.gd" id="1_5m3uf"]
+[ext_resource type="PackedScene" uid="uid://cpicmd3ka8vva" path="res://scenes/spy_centers.tscn" id="2_k2l75"]
+
+[node name="war_map" type="Node2D"]
+position = Vector2(330, -39)
+script = ExtResource("1_5m3uf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 360)
+
+[node name="ConfedMap" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-5, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4fh36")
+
+[node name="spy_centers3" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(-39, 134)
+
+[node name="spy_centers2" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(-200, 111)
+
+[node name="spy_centers" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(-37.5, -15)
+
+[node name="spy_centers4" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(28, 82.5)
+
+[node name="spy_centers5" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(135, 77)
+
+[node name="spy_centers6" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(114, -50)
+
+[node name="spy_centers7" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(240, 61)
+
+[node name="spy_centers8" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(286.5, 201)
+
+[node name="spy_centers9" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(339.5, 17.5)
+
+[node name="spy_centers10" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(343.5, -77.5)
+
+[node name="spy_centers11" parent="Camera2D/ConfedMap" instance=ExtResource("2_k2l75")]
+position = Vector2(335, -146.5)

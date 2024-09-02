@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpicmd3ka8vva"]
+
+[ext_resource type="Script" path="res://scenes/spy_centers.gd" id="1_5n4o1"]
+[ext_resource type="Texture2D" uid="uid://cmihopck0gbdo" path="res://res/spy_center.png" id="1_u3exb"]
+[ext_resource type="Texture2D" uid="uid://f7pnmtcs2cod" path="res://res/spy_glass.png" id="3_jr71s"]
+[ext_resource type="FontFile" uid="uid://ljumcpkmeute" path="res://res/amiri/Amiri-Bold.ttf" id="4_adjsc"]
+[ext_resource type="AudioStream" uid="uid://r3or3hwomphx" path="res://res/Construction sound.wav" id="5_nf8ay"]
+[ext_resource type="AudioStream" uid="uid://crdvi00mb1ewd" path="res://res/shush-90127.mp3" id="6_5h0a8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7imxx"]
+radius = 43.0116
+
+[node name="spy_centers" type="Node2D"]
+script = ExtResource("1_5n4o1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7imxx")
+
+[node name="SpyCenter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="perc" type="RichTextLabel" parent="SpyCenter"]
+visible = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = -28.0
+offset_right = 81.0
+offset_bottom = 29.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_adjsc")
+theme_override_font_sizes/mono_font_size = 0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "50%"
+fit_content = true
+
+[node name="SpyCenterim" type="Sprite2D" parent="SpyCenter"]
+modulate = Color(0.294118, 0.4, 0.568627, 1)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_u3exb")
+
+[node name="SpyGlass" type="Sprite2D" parent="SpyCenter"]
+position = Vector2(0, -1)
+texture = ExtResource("3_jr71s")
+hframes = 2
+
+[node name="construction" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nf8ay")
+volume_db = -17.333
+
+[node name="shush" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5h0a8")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

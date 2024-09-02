@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://djjhcc46aa0wo"]
+
+[ext_resource type="Script" path="res://ui/turnbut.gd" id="1_hst8t"]
+[ext_resource type="Texture2D" uid="uid://ccl0wt6o87iy7" path="res://res/turn_buts.png" id="2_lxk07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yt214"]
+radius = 133.015
+
+[node name="turnbut" type="Node2D"]
+script = ExtResource("1_hst8t")
+
+[node name="TurnButs" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+texture = ExtResource("2_lxk07")
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yt214")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

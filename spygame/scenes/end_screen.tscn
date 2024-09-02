@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1puxrnq2rbq7"]
+
+[ext_resource type="Texture2D" uid="uid://dqpb26cpe02v8" path="res://res/end_container.png" id="1_e2jf4"]
+[ext_resource type="Script" path="res://scenes/end_screen.gd" id="1_s77lp"]
+[ext_resource type="Texture2D" uid="uid://n31tym82vfin" path="res://res/victory_faces.png" id="2_ka0oc"]
+[ext_resource type="Texture2D" uid="uid://dhd46ko4rlodr" path="res://res/menu_buts.png" id="4_atd2i"]
+[ext_resource type="FontFile" uid="uid://ljumcpkmeute" path="res://res/amiri/Amiri-Bold.ttf" id="5_vslpi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbc6h"]
+radius = 132.544
+
+[node name="end_screen" type="Node2D"]
+script = ExtResource("1_s77lp")
+
+[node name="EndContainer" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+texture = ExtResource("1_e2jf4")
+
+[node name="VictoryFaces" type="Sprite2D" parent="EndContainer"]
+position = Vector2(149, -34.5)
+scale = Vector2(0.986667, 0.9925)
+texture = ExtResource("2_ka0oc")
+hframes = 2
+
+[node name="MainMenuBut" type="Sprite2D" parent="EndContainer"]
+position = Vector2(0, 166)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_atd2i")
+hframes = 6
+
+[node name="Area2D" type="Area2D" parent="EndContainer/MainMenuBut"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndContainer/MainMenuBut/Area2D"]
+shape = SubResource("CircleShape2D_kbc6h")
+
+[node name="result" type="RichTextLabel" parent="EndContainer"]
+offset_left = -296.0
+offset_top = -233.0
+offset_bottom = -142.0
+theme_override_fonts/normal_font = ExtResource("5_vslpi")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 35
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]VICTORY[/center]"
+fit_content = true
+
+[node name="exp" type="RichTextLabel" parent="EndContainer"]
+offset_left = -296.0
+offset_top = -105.0
+offset_right = -1.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("5_vslpi")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]Through cunning we've helped to bring the rebellious southern states back into the fold![/center]"
+
+[node name="time_fin" type="RichTextLabel" parent="EndContainer"]
+offset_left = -282.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("5_vslpi")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Date Finished :"
+
+[node name="int_gath" type="RichTextLabel" parent="EndContainer"]
+offset_left = -283.0
+offset_top = 35.0
+offset_bottom = 86.0
+theme_override_fonts/normal_font = ExtResource("5_vslpi")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Intel Gathered :"
+
+[connection signal="mouse_entered" from="EndContainer/MainMenuBut/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="EndContainer/MainMenuBut/Area2D" to="." method="_on_area_2d_mouse_exited"]

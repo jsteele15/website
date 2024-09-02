@@ -1,0 +1,232 @@
+[gd_scene load_steps=18 format=3 uid="uid://wx04ctr08u76"]
+
+[ext_resource type="Script" path="res://scenes/tutorial.gd" id="1_4hn2s"]
+[ext_resource type="Script" path="res://scenes/ui_butts.gd" id="1_l33b6"]
+[ext_resource type="PackedScene" uid="uid://crlnqrfn7l1kf" path="res://ui/buttons.tscn" id="2_oe2jr"]
+[ext_resource type="Texture2D" uid="uid://bleku1l13e5jf" path="res://res/white_block.png" id="2_wm6x5"]
+[ext_resource type="Texture2D" uid="uid://srmtwfwq50j4" path="res://res/confed_map.png" id="3_5rt10"]
+[ext_resource type="PackedScene" uid="uid://djjhcc46aa0wo" path="res://ui/turnbut.tscn" id="3_lb3wq"]
+[ext_resource type="PackedScene" uid="uid://cpicmd3ka8vva" path="res://scenes/spy_centers.tscn" id="4_150r5"]
+[ext_resource type="Texture2D" uid="uid://cseyjq4db7pqh" path="res://res/road.png" id="4_aqyfu"]
+[ext_resource type="Script" path="res://scenes/game_stats.gd" id="4_da6sk"]
+[ext_resource type="Script" path="res://scenes/road.gd" id="5_6hxsn"]
+[ext_resource type="PackedScene" uid="uid://2ojpex6irhem" path="res://scenes/north.tscn" id="5_v0akq"]
+[ext_resource type="FontFile" uid="uid://ljumcpkmeute" path="res://res/amiri/Amiri-Bold.ttf" id="5_wtsnq"]
+[ext_resource type="Texture2D" uid="uid://dxn3j5l3utmgx" path="res://res/tut_guy.png" id="7_1u2dk"]
+[ext_resource type="Script" path="res://scenes/tut_guy.gd" id="8_ribhx"]
+[ext_resource type="PackedScene" uid="uid://b3k4kl8il6lwc" path="res://ui/battle_card.tscn" id="13_nnfa7"]
+[ext_resource type="Texture2D" uid="uid://dqpb26cpe02v8" path="res://res/end_container.png" id="14_i1cju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rswa7"]
+size = Vector2(808, 538)
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_4hn2s")
+
+[node name="WhiteBlock" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.839216, 0.776471, 0.631373)
+position = Vector2(2523, 1168)
+scale = Vector2(1.93761, 0.981883)
+texture = ExtResource("2_wm6x5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+
+[node name="ConfedMap" type="Sprite2D" parent="Camera2D"]
+position = Vector2(279, 1253)
+scale = Vector2(4.76842, 5.04318)
+texture = ExtResource("3_5rt10")
+
+[node name="ten_nor" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(102.13, -168.346)
+scale = Vector2(0.0629138, 0.356918)
+texture = ExtResource("4_aqyfu")
+script = ExtResource("5_6hxsn")
+con_1 = NodePath("../north")
+con_2 = NodePath("../spy_centers")
+rd = NodePath(".")
+
+[node name="ten_ala" type="Sprite2D" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("con_1", "con_2", "rd")]
+position = Vector2(94.1269, -107.251)
+rotation = 0.322886
+scale = Vector2(0.0707901, 0.366906)
+texture = ExtResource("4_aqyfu")
+script = ExtResource("5_6hxsn")
+con_1 = NodePath("../spy_centers")
+con_2 = NodePath("../spy_centers2")
+rd = NodePath(".")
+
+[node name="spy_centers" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1", "rd2") instance=ExtResource("4_150r5")]
+position = Vector2(102.13, -133.844)
+scale = Vector2(0.7, 0.66)
+rd1 = NodePath("../ten_nor")
+rd2 = NodePath("../ten_ala")
+
+[node name="spy_centers2" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1") instance=ExtResource("4_150r5")]
+position = Vector2(84.3046, -80.1081)
+scale = Vector2(0.7, 0.66)
+rd1 = NodePath("../ten_ala")
+
+[node name="north" parent="Camera2D/ConfedMap" node_paths=PackedStringArray("rd1") instance=ExtResource("5_v0akq")]
+position = Vector2(105.486, -193.925)
+scale = Vector2(0.209713, 0.198287)
+rd1 = NodePath("../ten_nor")
+
+[node name="ui_butts" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = 19.0
+offset_right = 960.0
+offset_bottom = 19.0
+grow_vertical = 0
+script = ExtResource("1_l33b6")
+
+[node name="upgrade" parent="Camera2D/ui_butts" instance=ExtResource("2_oe2jr")]
+position = Vector2(79, -69)
+scale = Vector2(0.5, 0.5)
+activated = 1
+
+[node name="close" parent="Camera2D/ui_butts" instance=ExtResource("2_oe2jr")]
+position = Vector2(275, -70)
+scale = Vector2(0.5, 0.5)
+fra = 2
+activated = 2
+
+[node name="recon" parent="Camera2D/ui_butts" instance=ExtResource("2_oe2jr")]
+position = Vector2(468, -71)
+scale = Vector2(0.5, 0.5)
+fra = 4
+activated = 3
+
+[node name="intel" parent="Camera2D/ui_butts" instance=ExtResource("2_oe2jr")]
+position = Vector2(679, -73)
+scale = Vector2(0.5, 0.5)
+fra = 6
+activated = 4
+
+[node name="turnbut" parent="Camera2D/ui_butts" instance=ExtResource("3_lb3wq")]
+position = Vector2(936, -132)
+
+[node name="game_stats" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1146.0
+offset_bottom = 42.0
+script = ExtResource("4_da6sk")
+
+[node name="battle" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 961.0
+offset_top = 1.0
+offset_right = 1163.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("5_wtsnq")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] battle  [/center]"
+
+[node name="year" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 614.0
+offset_top = -1.0
+offset_right = 828.0
+offset_bottom = 65.0
+theme_override_fonts/normal_font = ExtResource("5_wtsnq")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] 1861  [/center]"
+
+[node name="turn" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 1.0
+offset_right = 524.0
+offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("5_wtsnq")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] turn: 1  [/center]"
+
+[node name="op_power" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 64.0
+theme_override_fonts/normal_font = ExtResource("5_wtsnq")
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] OP: 10  [/center]"
+
+[node name="intel_gathered" type="RichTextLabel" parent="Camera2D/game_stats"]
+layout_mode = 0
+offset_left = 1170.0
+offset_top = 1.0
+offset_right = 1372.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("5_wtsnq")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center] IL : 1  [/center]"
+
+[node name="conf" type="ColorRect" parent="."]
+offset_top = 50.0
+offset_right = 1758.0
+offset_bottom = 90.0
+color = Color(0.74902, 0.0392157, 0.188235, 1)
+
+[node name="feds" type="ColorRect" parent="."]
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 90.0
+color = Color(0.0392157, 0.192157, 0.380392, 1)
+
+[node name="fader" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.839216, 0.776471, 0)
+position = Vector2(1435, 1197)
+texture = ExtResource("2_wm6x5")
+
+[node name="battle_card" parent="." instance=ExtResource("13_nnfa7")]
+position = Vector2(918, 1129)
+scale = Vector2(2, 1.994)
+script = null
+
+[node name="EndContainer" type="Sprite2D" parent="."]
+position = Vector2(1175.6, 428)
+scale = Vector2(1.37532, 1.352)
+texture = ExtResource("14_i1cju")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndContainer"]
+offset_left = -295.0
+offset_top = -231.0
+offset_right = -14.0
+offset_bottom = 166.0
+theme_override_fonts/normal_font = ExtResource("5_wtsnq")
+bbcode_enabled = true
+text = "[center]You've finished the tutorial, the degree to which one side has an advantage depends on how much intelligence you've gotten to the north. This number resets after every battle. Once all the battles have been won or lost, whoever won the most comes out victorious. 
+
+Press me to return to the main menu and play the game. Good Luck![/center]"
+
+[node name="TutGuy" type="Sprite2D" parent="."]
+position = Vector2(1409, 419)
+texture = ExtResource("7_1u2dk")
+hframes = 2
+script = ExtResource("8_ribhx")
+
+[node name="TutGuy" type="Sprite2D" parent="TutGuy"]
+position = Vector2(-1, -2)
+texture = ExtResource("7_1u2dk")
+hframes = 2
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="TutGuy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutGuy/Area2D"]
+position = Vector2(-227, -38)
+shape = SubResource("RectangleShape2D_rswa7")
+
+[connection signal="mouse_entered" from="TutGuy/Area2D" to="TutGuy" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="TutGuy/Area2D" to="TutGuy" method="_on_area_2d_mouse_exited"]
