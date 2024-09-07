@@ -2,21 +2,27 @@
 <!-- have to put https:// before the local website -->
 <html>
     <head>
-
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <p>This is the start of my website</p>
+        <div class="grid_container">
+            <div class="grid_item">James Steele</div>
+            <div class="grid_item">About</div>
+            <div class="grid_item">Things I've made</div>
+        </div>
         
-        <iframe
-            src ="spygame/index.html"
-            width ="800"
-            height="699"
-            frameborder="0"></iframe>
-        <iframe
-            src ="https://test.local/"
-            width ="800"
-            height="699"
-            frameborder="0"></iframe>
-            <iframe frameborder="0" src="https://itch.io/embed/2873293" width="552" height="167"><a href="https://jam-bone.itch.io/surveillance-states">Surveillance States by jam_bone</a></iframe>
-    </body>
+        <!--the idea is that underneath the basic stuff will be a moving carosual of images that when you hover over them it'll show you the descrition-->
+        <div class="carosual">
+            <div class="car_inner">
+                <div  class="car_item"><img class="movingImage" src="game_images/in_the_dark.png"></div>
+                <div class="car_item"><img class="movingImage" src="game_images/UGP.png"></div>
+                <div class="car_item"><img class="movingImage" src="game_images/comrade.png"></div>
+                <div class="car_item"><img class="movingImage" src="game_images/iamsurv.png"></div>
+                <div class="car_item"><img class="movingImage" src="game_images/thomas.png"></div>
+                <div class="car_item"><img class="movingImage" src="game_images/surv.png"></div>
+            </div>
+        </div>
+
+        <script src = "site_funct.js"></script>
+        </body>
 </html>

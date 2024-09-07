@@ -1,0 +1,39 @@
+/*this is for the menu at the top of the page*/
+
+.grid_container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10;
+    background-color: aqua;
+}
+
+.grid_item {
+    text-align: center;
+    background-color: beige;
+}
+
+/*this is for the moving images of all the games*/
+
+.carosual {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.car_inner {
+    display: flex;
+    /*this moves the images in the carosual at a constant pace around*/
+    animation: slide 20s linear infinite;
+    
+}
+
+.car_inner:hover {
+    animation-play-state: paused; /* Pause animation on hover */
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    
+    100% { transform: translateX(-50%); }
+}
