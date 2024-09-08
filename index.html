@@ -5,14 +5,47 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <!--this is for the top bar that will contain a search bar-->
+        <div class="grid_container top_grid">
+            <div class="grid_item grid_item_top">James Steele</div>
+            
+            <div class="grid_item grid_item_top search_bar">
+            <form action="/search">
+                <input  type="text" name="query" placeholder="Search..."> 
+                <button  type="submit">Search</button>
+            </form>
+            </div>
+            
+        </div>
+
+        <!--this is for the menu navigation buttons-->
         <div class="grid_container">
-            <div class="grid_item">James Steele</div>
-            <div class="grid_item">About</div>
-            <div class="grid_item">Things I've made</div>
+            <div class="grid_item grid_item_sub">Placeholder</div>
+            <div class="grid_item grid_item_sub">About</div>
+            <div class="grid_item grid_item_sub">Things I've made</div>
         </div>
         
         <!--the idea is that underneath the basic stuff will be a moving carosual of images that when you hover over them it'll show you the descrition-->
-        <div class="carosual">
+        <!--I want to rip this out now, and just have grid items that you can select. It looks less fancy but itll be more functional, ill comment out the code as i might want to use the carosual for something else-->
+        
+        <div class="game_grid">
+            <div  class="grid_game"><img class="image_border" src="game_images/in_the_dark.png"></div>
+            <div class="grid_game large_im"><img class="image_border" src="game_images/UGP.png"></div>
+            <div class="grid_game"><img class="image_border" src="game_images/surv.png"></div>
+            <div class="grid_game large_im"><img class="image_border" src="game_images/thomas.png"></div>
+            <div class="grid_game"><img class="image_border" src="game_images/comrade.png"></div>
+            <div class="grid_game"><img class="image_border" src="game_images/iamsurv.png"></div>
+            
+            
+        </div>
+        
+        <!--this is where ill put quotes and shit about the games I've made-->
+        <div class="bottom_grid">
+            <div class="quote">"you suck"</div>
+            <div class="quote_info">about x game</div>
+        </div>
+
+        <!--<div class="carosual">
             <div class="car_inner">
                 <div  class="car_item"><img class="movingImage" src="game_images/in_the_dark.png"></div>
                 <div class="car_item"><img class="movingImage" src="game_images/UGP.png"></div>
@@ -21,7 +54,7 @@
                 <div class="car_item"><img class="movingImage" src="game_images/thomas.png"></div>
                 <div class="car_item"><img class="movingImage" src="game_images/surv.png"></div>
             </div>
-        </div>
+        </div>-->
 
         <script src = "site_funct.js"></script>
         </body>
